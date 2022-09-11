@@ -1,24 +1,33 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import {useEffect, useState} from 'react';
+import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
+import Cats from './Components/Cats';
+import Home from './Components/Home';
+import Navbar from './Components/Navbar';
+import Adoptedpets from './Components/Adoptedpets';
+
+import "./index.css";
+
 
 function App() {
+  
+ 
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+    <Router>
+      <div>
+        <Navbar />
+      </div>
+    <Routes>
+      <Route exact path='/' element={<Home />} />
+      <Route exact path="/cats" element={<Cats />} />
+      <Route path="/cats/adopt" element={<Cats />} />
+      <Route exact path="/adopted/:id" element={<Adoptedpets />} />
+      
+    </Routes>
+    </Router>
+    </>
+    
   );
 }
 
