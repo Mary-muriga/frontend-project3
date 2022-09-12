@@ -3,7 +3,7 @@ import {useEffect, useState} from 'react';
 import { Link } from 'react-router-dom';
 
 
-function Cats() {
+function Cats({addPets}) {
   const[pets, setPets] = useState([]);
   
   useEffect(()=> {
@@ -12,10 +12,18 @@ function Cats() {
     .then((pets)=> setPets(pets));
   }, []);
 
-  function handleClick(event){
-    // console.log(event);
+   function handleClick(event){
+     event.preventDefault();
   }
 
+ function addPets(newPet){
+  const updatedPets = [...pets, newPet]
+  setPets(updatedPets)
+ }
+
+//  function removePet(){
+
+//  }
 
   return (
     
@@ -31,6 +39,8 @@ function Cats() {
         <p>Age: {pet.age} years</p>
         <p>Type: {pet.category}</p>
         <Link to={`/adopted/${pet.id}`} id={pet.id}><button className='button' id={pet.id} onClick={handleClick}>View details</button></Link>
+
+        <button className='button' onClick={handleClick}>Add a pet</button>
         
         <button className='button' onClick={handleClick}>Remove</button>
       </div>

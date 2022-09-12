@@ -1,9 +1,9 @@
 import React from 'react'
 import { useState } from 'react';
 
- function Addpet() {
+ function Addpet({addPets}) {
 const[pet, setPet]=useState({
-  name: "",
+     name: "",
      breed: "",
      category: "",
      age: "",
@@ -18,7 +18,7 @@ function handleChange(e) {
 function handleSubmit(e){
   e.preventDefault();
 
-  fetch("https://simpleshoppingapi.herokuapp.com/cars", 
+  fetch("http://localhost:9292/pets", 
   {
       method: "POST",
       headers: {
@@ -27,7 +27,7 @@ function handleSubmit(e){
       body: JSON.stringify(pet),
     })
       .then((r) => r.json())
-      .then((pet) => setPet(pet));
+      .then((pet) => addPets(pet));
    }
 
 
@@ -35,13 +35,42 @@ function handleSubmit(e){
     <div>
         <h2>Add your pet here</h2>
         <form className='addPet' onSubmit={handleSubmit}>
+          <label>Image</label>
           <input
-          placeholder='enter image'
-          type='string'
+          placeholder='enter the image'
+          type='text'
           name="image"
-          value={pet.image}
-          onChange={handleChange}
-          />
+          value={pet.image_url}
+          onChange={handleChange}/>
+                                                                                                      
+          <label>Breed</label>
+          <input placeholder='enter the breed'
+          type="text"
+          name="breed"
+          value={pet.breed}
+          onChange={handleChange}/>
+
+          <label>age</label>
+          <input placeholder='enter the age'
+          type="text"
+          name="age"
+          value={pet.age}
+          onChange={handleChange}/>
+
+          <label>color</label>
+          <input placeholder='enter the color'
+          type="text"
+          name="color"
+          value={pet.color}
+          onChange={handleChange}/>
+
+          <label>category</label>
+          <input placeholder='enter the category'
+          type="text"
+          name="category"
+          value={pet.category}
+          onChange={handleChange}/>
+
           <input type="submit" value="Submit" />
         </form>
     </div>
