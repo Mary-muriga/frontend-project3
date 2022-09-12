@@ -34,6 +34,7 @@ useEffect(()=> {
     <div>
         <img src= {pet.image_url}/>
         <p>Name: {pet.name}</p>
+        <p>Breed: {pet.breed}</p>
         <p>Previous owner: {owner.name}</p>
         <p>Adopted by: {petlover.name}</p>
     </div>

@@ -12,10 +12,10 @@ function Home() {
   return (
   
     <div>
-      <p>ADOPT US</p>
-      <p>WE NEED YOUR HELP</p>
-       <div className='button'>
-       <Link to = "/cats/adopt"><button onClick={handleClick}>Find a pet to adopt</button></Link>
+      <h2>CATS ARE LOVELY, FRIENDLY AND FUN TO HAVE THEM AROUND</h2>
+      <h2>WE LOVE CATS</h2>
+       <div>
+       <Link to = "/cats/adopt"><button className='button' onClick={handleClick}>View adopted pets</button></Link>
        </div>
        <div className='block'>
         <img className='img' src={image} />

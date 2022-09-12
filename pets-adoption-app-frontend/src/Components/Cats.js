@@ -20,6 +20,7 @@ function Cats() {
   return (
     
     <div >
+      <h2>Adorable cats</h2>
 
       {pets.map((pet)=>(
       
@@ -29,8 +30,9 @@ function Cats() {
         <p>Breed: {pet.breed}</p>
         <p>Age: {pet.age} years</p>
         <p>Type: {pet.category}</p>
-        <Link to={`/adopted/${pet.id}`} id={pet.id}><button id={pet.id} onClick={handleClick}>View details</button></Link>
-        <button onClick={handleClick}>Remove</button>
+        <Link to={`/adopted/${pet.id}`} id={pet.id}><button className='button' id={pet.id} onClick={handleClick}>View details</button></Link>
+        
+        <button className='button' onClick={handleClick}>Remove</button>
       </div>
       ))}
       
