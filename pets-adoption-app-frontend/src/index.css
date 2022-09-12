@@ -79,3 +79,13 @@ p{
   
 }
 
+.addPet{
+  margin-block: 200px;
+  padding-left: 300px;
+  flex-direction: column;
+  text-align: justify;
+}
+
+.label-text{
+  color:rgb(217, 168, 168);
+}

@@ -36,36 +36,36 @@ function handleSubmit(e){
         <h2>Add your pet here</h2>
         <form className='addPet' onSubmit={handleSubmit}>
           <label>Image</label>
-          <input
+          <input className='form-1'
           placeholder='enter the image'
           type='text'
           name="image"
           value={pet.image_url}
           onChange={handleChange}/>
                                                                                                       
-          <label>Breed</label>
-          <input placeholder='enter the breed'
+          <label className='label-text'>Breed</label>
+          <input className='form-1' placeholder='enter the breed'
           type="text"
           name="breed"
           value={pet.breed}
           onChange={handleChange}/>
 
-          <label>age</label>
-          <input placeholder='enter the age'
+          <label className='label-text'>age</label>
+          <input className='form-1' placeholder='enter the age'
           type="text"
           name="age"
           value={pet.age}
           onChange={handleChange}/>
 
-          <label>color</label>
-          <input placeholder='enter the color'
+          <label className='label-text'>color</label>
+          <input className='form-1'placeholder='enter the color'
           type="text"
           name="color"
           value={pet.color}
           onChange={handleChange}/>
 
-          <label>category</label>
-          <input placeholder='enter the category'
+          <label className='label-text'>category</label>
+          <input className='form-1' placeholder='enter the category'
           type="text"
           name="category"
           value={pet.category}

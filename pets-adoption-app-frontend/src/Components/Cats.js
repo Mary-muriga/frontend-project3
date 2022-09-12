@@ -21,9 +21,17 @@ function Cats({addPets}) {
   setPets(updatedPets)
  }
 
-//  function removePet(){
+ function handleDelete(e){
+  let id =e.target.id;
+  
 
-//  }
+  fetch(`http://localhost:9292/pets/${id}`,{
+    method: "DELETE",
+  })
+  .then((r) => r.json())
+  .then((deletedPet) => handleDelete(deletedPet));
+ }
+console.log(pets.id)
 
   return (
     
@@ -38,11 +46,13 @@ function Cats({addPets}) {
         <p>Breed: {pet.breed}</p>
         <p>Age: {pet.age} years</p>
         <p>Type: {pet.category}</p>
+        <div>
         <Link to={`/adopted/${pet.id}`} id={pet.id}><button className='button' id={pet.id} onClick={handleClick}>View details</button></Link>
 
         <button className='button' onClick={handleClick}>Add a pet</button>
         
-        <button className='button' onClick={handleClick}>Remove</button>
+        <button id={pet.id} className='button' onClick={handleDelete}>Remove</button>
+        </div>
       </div>
       ))}
       
