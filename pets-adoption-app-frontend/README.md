@@ -30,4 +30,10 @@ Ruby-sinatra- To build a RESTful API
 
 ReactJS - Building component based UI
 
+## Authors
+Mary Muriga @https://github.com/Mary-muriga
+
+## Project live link
+https://vercel.com/mary-muriga/frontend-project3
+
 
