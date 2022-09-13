@@ -9,7 +9,6 @@ export default function Navbar() {
     <h2>Catshelter</h2>
       <Link className= "nav-menu" to= '/'> Home</Link>
       <Link className='nav-menu' to= '/cats'> Cats</Link>
-      <Link className='nav-menu' to= '/addpet'> Addpet</Link>
     </div>
     
   )

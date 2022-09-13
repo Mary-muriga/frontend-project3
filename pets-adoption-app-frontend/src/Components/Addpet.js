@@ -11,13 +11,14 @@ const[pet, setPet]=useState({
      image_url: "",
 });
 
+function handleClick(event){
+  event.preventDefault();
+}
 function handleChange(e) {
   setPet({...pet, [e.target.name]: e.target.value});
 }
-
 function handleSubmit(e){
   e.preventDefault();
-
   fetch("https://mycatpet.herokuapp.com/pets", 
   {
       method: "POST",
@@ -39,39 +40,40 @@ function handleSubmit(e){
           <input className='form-1'
           placeholder='enter the image'
           type='text'
-          name="image"
+          id ="image"
           value={pet.image_url}
-          onChange={handleChange}/>
+          onChange={handleChange}/><br/>
                                                                                                       
           <label className='label-text'>Breed</label>
           <input className='form-1' placeholder='enter the breed'
           type="text"
           name="breed"
           value={pet.breed}
-          onChange={handleChange}/>
+          onChange={handleChange}/><br/>
 
           <label className='label-text'>age</label>
           <input className='form-1' placeholder='enter the age'
           type="text"
           name="age"
           value={pet.age}
-          onChange={handleChange}/>
+          onChange={handleChange}/><br/>
 
           <label className='label-text'>color</label>
           <input className='form-1'placeholder='enter the color'
           type="text"
           name="color"
           value={pet.color}
-          onChange={handleChange}/>
+          onChange={handleChange}/><br/>
 
           <label className='label-text'>category</label>
           <input className='form-1' placeholder='enter the category'
           type="text"
           name="category"
           value={pet.category}
-          onChange={handleChange}/>
+          onChange={handleChange}/><br/>
 
-          <input type="submit" value="Submit" />
+          <button>submit</button>
+          
         </form>
     </div>
   )

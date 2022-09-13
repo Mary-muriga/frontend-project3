@@ -13,19 +13,19 @@ const[petlover, setPetlover]= useState({})
 
 
 useEffect(()=> {
-    fetch(`http://localhost:9292/pets/${id}`)
+    fetch(`https://mycatpet.herokuapp.com/pets/${id}`)
     .then((response)=> response.json())
     .then((pet)=> setPet(pet));
   }, []);
 
   useEffect(()=> {
-    fetch(`http://localhost:9292/owners/${pet.owner_id}`)
+    fetch(`https://mycatpet.herokuapp.com/owners/${pet.owner_id}`)
     .then((response)=> response.json())
     .then((owner)=> setOwner(owner));
   }, [pet]);
 
   useEffect(()=> {
-    fetch(`http://localhost:9292/petlovers/${pet.petlover_id}`)
+    fetch(`https://mycatpet.herokuapp.com/petlovers/${pet.petlover_id}`)
     .then((response)=> response.json())
     .then((petlover)=> setPetlover(petlover));
   }, [pet]);

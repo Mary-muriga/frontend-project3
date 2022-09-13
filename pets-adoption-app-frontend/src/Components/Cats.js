@@ -1,9 +1,11 @@
 import React from 'react'
 import {useEffect, useState} from 'react';
 import { Link } from 'react-router-dom';
+import Adoptedpets from './Adoptedpets';
+import Addpet from './Addpet';
 
 
-function Cats(addPet) {
+function Cats() {
   const[pets, setPets] = useState([]);
   
   useEffect(()=> {
@@ -21,7 +23,7 @@ function Cats(addPet) {
   setPets(updatedPets)
  }
 
- function handleDelete(e){
+ function handleClickDelete(e){
   let id =e.target.id;
   
 
@@ -29,18 +31,23 @@ function Cats(addPet) {
     method: "DELETE",
   })
   .then((r) => r.json())
-  .then((deletedPet) => handleDelete(deletedPet));
+  .then((deletePet) => handleDelete(deletePet));
  }
-console.log(pets.id)
+ function handleDelete(deletePet){
+  let newCats=pets.filter((item)=> item.id !== deletePet.id)
+  setPets(newCats)
+ }
+// console.log(pets.id)
 
   return (
     
     <div >
       <h2>Adorable cats</h2>
+      <Addpet addPets={addPets}/>
 
       {pets.map((pet)=>(
       
-        <div>
+        <div key={pet.id}>
         <img className ="image" src={pet.image_url} alt={pet.name}/>
         <p>Name: {pet.name}</p>
         <p>Breed: {pet.breed}</p>
@@ -49,10 +56,11 @@ console.log(pets.id)
         <div>
         <Link to={`/adopted/${pet.id}`} id={pet.id}><button className='button' id={pet.id} onClick={handleClick}>View details</button></Link>
 
-        <button className='button' onClick={handleClick}>Add a pet</button>
         
-        <button id={pet.id} className='button' onClick={handleDelete}>Remove</button>
+        
+        <button id={pet.id} className='button' onClick={handleClickDelete}>Remove</button>
         </div>
+
       </div>
       ))}
       
