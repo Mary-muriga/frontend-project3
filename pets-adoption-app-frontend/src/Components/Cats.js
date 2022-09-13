@@ -3,11 +3,11 @@ import {useEffect, useState} from 'react';
 import { Link } from 'react-router-dom';
 
 
-function Cats({addPets}) {
+function Cats(addPet) {
   const[pets, setPets] = useState([]);
   
   useEffect(()=> {
-    fetch("http://localhost:9292/pets")
+    fetch("https://mycatpet.herokuapp.com/pets")
     .then((response)=> response.json())
     .then((pets)=> setPets(pets));
   }, []);
@@ -25,7 +25,7 @@ function Cats({addPets}) {
   let id =e.target.id;
   
 
-  fetch(`http://localhost:9292/pets/${id}`,{
+  fetch(`https://mycatpet.herokuapp.com/pets/${id}`,{
     method: "DELETE",
   })
   .then((r) => r.json())

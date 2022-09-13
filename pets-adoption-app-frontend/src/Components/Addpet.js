@@ -18,7 +18,7 @@ function handleChange(e) {
 function handleSubmit(e){
   e.preventDefault();
 
-  fetch("http://localhost:9292/pets", 
+  fetch("https://mycatpet.herokuapp.com/pets", 
   {
       method: "POST",
       headers: {
