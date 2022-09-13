@@ -21,3 +21,13 @@ The page will reload when you make changes.
 You may also see any lint errors in the console.
 
 ## Technology used
+
+HTML -to develop the structure of the page
+
+CSS - to style the User Interface
+
+Ruby-sinatra- To build a RESTful API
+
+ReactJS - Building component based UI
+
+
