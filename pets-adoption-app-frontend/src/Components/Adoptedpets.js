@@ -32,6 +32,7 @@ useEffect(()=> {
 
   return (
     <div>
+    
         <img src= {pet.image_url}/>
         <p>Name: {pet.name}</p>
         <p>Breed: {pet.breed}</p>

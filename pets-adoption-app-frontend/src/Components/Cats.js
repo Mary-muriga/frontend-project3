@@ -1,7 +1,6 @@
 import React from 'react'
 import {useEffect, useState} from 'react';
 import { Link } from 'react-router-dom';
-import Adoptedpets from './Adoptedpets';
 import Addpet from './Addpet';
 
 
@@ -14,20 +13,13 @@ function Cats() {
     .then((pets)=> setPets(pets));
   }, []);
 
-   function handleClick(event){
-     event.preventDefault();
-  }
-
  function addPets(newPet){
   const updatedPets = [...pets, newPet]
   setPets(updatedPets)
  }
 
  function handleClickDelete(e){
-  let id =e.target.id;
-  
-
-  fetch(`https://mycatpet.herokuapp.com/pets/${id}`,{
+  fetch(`https://mycatpet.herokuapp.com/pets/${e.target.id}`,{
     method: "DELETE",
   })
   .then((r) => r.json())
@@ -41,7 +33,7 @@ function Cats() {
 
   return (
     
-    <div >
+    <div>
       <h2>Adorable cats</h2>
       <Addpet addPets={addPets}/>
 
@@ -52,9 +44,11 @@ function Cats() {
         <p>Name: {pet.name}</p>
         <p>Breed: {pet.breed}</p>
         <p>Age: {pet.age} years</p>
-        <p>Type: {pet.category}</p>
+        <p>Category: {pet.category}</p>
+        <p>owner_id: {pet.owner_id}</p>
+        <p>petlover_id: cat</p>
         <div>
-        <Link to={`/adopted/${pet.id}`} id={pet.id}><button className='button' id={pet.id} onClick={handleClick}>View details</button></Link>
+        <Link to={`/adopted/${pet.id}`} id={pet.id}><button className='button' id={pet.id} >View details</button></Link>
 
         
         
