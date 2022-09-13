@@ -10,8 +10,8 @@ const[pet, setPet]=useState({
      age: "",
      color: "",
      image_url: "",
-     owner_id: "",
-     petlover_id: ""
+     owner_id: 0,
+     petlover_id: 0
 });
 
 
@@ -26,8 +26,6 @@ function handleSubmit(e){
       age:parseInt(pet.age),
       color:pet.color,
       image_url:pet.image_url,
-      owner_id: parseInt(pet.owner_id),
-      petlover_id:parseInt(pet.petlover_id)
     })
    }
    function handleChange(e) {
@@ -82,21 +80,6 @@ function handleSubmit(e){
           name="category"
           value={pet.category}
           onChange={handleChange}/><br/>
-
-         <label className='label-text' htmlFor='owner_id'>Owner_id</label>
-          <input className='form-1' placeholder='enter the owner'
-          type="text"
-          name="owner_id"
-          value={pet.owner_id}
-          onChange={handleChange}/><br/>
-
-         <label className='label-text' htmlFor='petlover_id'>Petlover_id</label>
-          <input className='form-1' placeholder='enter the petlover'
-          type="text"
-          name="petlover_id"
-          value={pet.petlover_id}
-          onChange={handleChange}/><br/>
-
           <button>submit</button>
           
         </form>

@@ -45,8 +45,7 @@ function Cats() {
         <p>Breed: {pet.breed}</p>
         <p>Age: {pet.age} years</p>
         <p>Category: {pet.category}</p>
-        <p>owner_id: {pet.owner_id}</p>
-        <p>petlover_id: cat</p>
+        
         <div>
         <Link to={`/adopted/${pet.id}`} id={pet.id}><button className='button' id={pet.id} >View details</button></Link>
 
